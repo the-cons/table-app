@@ -8,18 +8,7 @@
 
 <% if @menu_items.any? %>
   <table>
-    <% @menu_items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= number_to_currency(item.price, unit: "€", format: "%n %u") %></td>
-        <td><%= link_to "Edit", edit_restaurant_menu_item_path(@restaurant, item) %></td>
-        <td>
-          <%= button_to "Delete", restaurant_menu_item_path(@restaurant, item),
-                        method: :delete,
-                        form: { data: { turbo_confirm: "Are you sure?" } } %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @menu_items %>
   </table>
 <% else %>
   <p>No menu yet.</p>

@@ -1,5 +1,5 @@
 <%= form_with model: [restaurant, menu_item] do |form| %>
-  <% if @menu_item.errors.any? %>
+  <% if menu_item.errors.any? %>
     <div class="errors">
       <h2><%= pluralize(menu_item.errors.count, "error") %> prevented this dish from being saved:</h2>
       <ul>
