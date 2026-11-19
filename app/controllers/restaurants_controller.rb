@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  allow_unauthenticated_access
+
   def index
     @restaurants = Restaurant.includes(:menu_items).order(:name)
   end

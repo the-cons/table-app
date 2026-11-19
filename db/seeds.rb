@@ -23,3 +23,9 @@ data.each do |attrs|
 end
 
 puts "Seeded #{Restaurant.count} restaurants, #{MenuItem.count} menu items"
+
+if Rails.env.development?
+  User.find_or_create_by!(email_address: "admin@example.com") do |user|
+    user.password = "1234"
+  end
+end
