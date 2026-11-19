@@ -1,4 +1,4 @@
-<h1><%= @restaurant.name %></h1>
+<h1><%= @restaurant.name %> <i>(<%= pluralize(@menu_items.size, "dish") %>)</i></h1>
 
 <% if @restaurant.phone.present? %>
   <p>Phone: <%= @restaurant.phone %></p>
