@@ -14,7 +14,4 @@
   <p>No menu yet.</p>
 <% end %>
 
-<% if authenticated? %>
-  <p><%= link_to "Add a dish", new_restaurant_menu_item_path(@restaurant) %></p>
-<% end %>
 <p><%= link_to "<- All restaurants", restaurants_path %></p>

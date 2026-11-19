@@ -1,0 +1,14 @@
+<h1>Admin · <%= @restaurant.name %></h1>
+
+<p><%= link_to "View public page", @restaurant %></p>
+
+<table>
+  <thead>
+  <tr><th>Dish</th><th>Price</th><th>Status</th><th></th><th></th></tr>
+  </thead>
+  <tbody>
+  <%= render @menu_items %>
+  </tbody>
+</table>
+
+<p><%= link_to "← All restaurants", admin_restaurants_path %></p>

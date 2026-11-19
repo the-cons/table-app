@@ -1,12 +1,4 @@
 <tr>
   <td><%= menu_item.name %></td>
   <td><%= number_to_currency(menu_item.price, unit: "€", format: "%n %u") %></td>
-  <% if authenticated? %>
-    <td><%= link_to "Edit", edit_restaurant_menu_item_path(menu_item.restaurant, menu_item) %></td>
-    <td>
-      <%= button_to "Delete", restaurant_menu_item_path(menu_item.restaurant, menu_item),
-                    method: :delete,
-                    form: { data: { turbo_confirm: "Remove #{menu_item.name} from the menu?" } } %>
-    </td>
-  <% end %>
 </tr>

@@ -2,4 +2,4 @@
 
 <%= render "form", restaurant: @restaurant, menu_item: @menu_item %>
 
-<p><%= link_to "Cancel", @restaurant %></p>
+<p><%= link_to "Cancel", [:admin, @restaurant] %></p>
