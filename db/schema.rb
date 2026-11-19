@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_10_195511) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_19_135054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_10_195511) do
     t.boolean "available", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["restaurant_id", "name"], name: "index_menu_items_on_restaurant_id_and_name", unique: true
     t.index ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
   end
 

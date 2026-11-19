@@ -11,7 +11,7 @@ class MenuItemsController < ApplicationController
     if @menu_item.save
       redirect_to @restaurant, notice: "#{@menu_item.name} was added to the menu."
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 

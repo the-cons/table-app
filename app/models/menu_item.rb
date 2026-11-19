@@ -7,4 +7,14 @@ class MenuItem < ApplicationRecord
             uniqueness: { scope: :restaurant_id, case_sensitive: false }
   validates :price, presence: true,
             numericality: { greater_than: 0, less_than: 1000 }
+  validate :name_not_shouting
+
+  private
+
+  def name_not_shouting
+    return unless name?
+    if name == name.upcase
+      errors.add(:name, "must not be all capitals")
+    end
+  end
 end
