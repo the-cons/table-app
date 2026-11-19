@@ -12,6 +12,12 @@
       <tr>
         <td><%= item.name %></td>
         <td><%= number_to_currency(item.price, unit: "€", format: "%n %u") %></td>
+        <td><%= link_to "Edit", edit_restaurant_menu_item_path(@restaurant, item) %></td>
+        <td>
+          <%= button_to "Delete", restaurant_menu_item_path(@restaurant, item),
+                        method: :delete,
+                        form: { data: { turbo_confirm: "Are you sure?" } } %>
+        </td>
       </tr>
     <% end %>
   </table>

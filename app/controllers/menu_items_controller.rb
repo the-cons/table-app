@@ -1,5 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :set_restaurant
+  before_action :set_menu_item, only: [ :edit, :update, :destroy ]
 
   def new
     @menu_item = @restaurant.menu_items.build
@@ -15,6 +16,22 @@ class MenuItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @menu_item.update(menu_item_params)
+      redirect_to @restaurant, notice: "#{@menu_item.name} was updated successfully."
+    else
+      render :edit, status: :unprocessable_content
+    end
+  end
+
+  def destroy
+    @menu_item.destroy
+    redirect_to @restaurant, notice: "#{@menu_item.name} was deleted successfully.", status: :see_other
+  end
+
   private
 
   def set_restaurant
@@ -23,5 +40,9 @@ class MenuItemsController < ApplicationController
 
   def menu_item_params
     params.expect(menu_item: [ :name, :description, :price, :available ])
+  end
+
+  def set_menu_item
+    @menu_item = @restaurant.menu_items.find(params[:id])
   end
 end
