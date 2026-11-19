@@ -1,0 +1,22 @@
+<h1><%= @restaurant.name %></h1>
+
+<% if @restaurant.phone.present? %>
+  <p>Phone: <%= @restaurant.phone %></p>
+<% end %>
+
+<h2>Menu</h2>
+
+<% if @menu_items.any? %>
+  <table>
+    <% @menu_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= number_to_currency(item.price, unit: "€", format: "%n %u") %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No menu yet.</p>
+<% end %>
+
+<p><%= link_to "<- All restaurants", restaurants_path %></p>
